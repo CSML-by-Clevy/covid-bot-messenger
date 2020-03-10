@@ -1,6 +1,6 @@
 # covid-bot-messenger
 
-Bot d'information sur le coronavirus réalisé avec le langage open-source CSML - https://www.csml.dev. Adaptation du CovidBot web original (https://covid19.clevy.io) pour une utilisation sur les plateformes messenger et workplace.
+Bot d'information sur le coronavirus réalisé avec le langage open-source CSML - https://www.csml.dev. Adaptation du CovidBot web original (https://covid19.clevy.io / https://github.com/CSML-by-Clevy/covid-bot) pour une utilisation sur les plateformes messenger et workplace.
 
 ## Installation
 
