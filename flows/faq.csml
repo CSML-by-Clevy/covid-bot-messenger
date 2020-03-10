@@ -1,0 +1,365 @@
+start:
+	say Typing(2000)
+	say "J'ai recensé les questions les plus fréquentes sur le coronavirus."
+	say Typing(2000)
+	say "Pour y répondre, j'ai toujours utilisé les sources les plus fiables, comme le site de l'Organisation Mondiale de la Santé (https://www.who.int/fr/emergencies/diseases/novel-coronavirus-2019/advice-for-public)."
+	say Typing(2000)
+	say "L'Etat Français a également mis en place un numéro vert, 0800 130 000, pour répondre aux questions du public (https://www.service-public.fr/particuliers/actualites/A13894)"
+	goto faq
+
+faq:
+	say Typing(2000)
+	say {
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"generic",
+        "image_aspect_ratio": "square",
+        "elements":[
+          {
+            "title":"Les sèche-mains sont-ils efficaces pour tuer le coronavirus ?",
+            "subtitle":"Est-ce que l'utilisation d'un sèche-main permet de tuer le coronavirus?",
+            "image_url":"https://www.produitsentretien.fr/images/375x375/produit/_/seche-mains-electrique-air-jet-1650-watts-en-abs-blanc_seche-mains-air-jet-e40009.jpg",
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"Sèche-main",
+                "payload":"SECHEMAIN" as sechemain
+              }              
+            ]      
+          },
+          {
+            "title":"Puis-je réutiliser un masque N95 ?",
+            "subtitle":"Puis-je réutiliser un masque N95 qui a déjà été utilisé ?",
+            "image_url":"https://www.medisecur.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/9/2/9210__right_e.jpg",
+            "buttons":[
+              {
+                "type":"postback",
+                "title": "Réutiliser un masque",
+                "payload": "REUTILISERMASQUE" as reusemask
+              }              
+            ]      
+          },
+          {
+            "title":"Une lampe UV de désinfection peut-elle tuer le coronavirus ?",
+            "subtitle":"Est-ce que je peux utiliser une lampe de désinfection à ultraviolets pour tuer le coronavirus ?",
+            "image_url":"https://ae01.alicdn.com/kf/HTB1yW.FXuP2gK0jSZFoq6yuIVXaU/Lampe-germicide-UV-de-st-rilisation-de-lumi-re-bleue-ultraviolette-de-lampe-de-d-sinfection.jpg_q50.jpg",
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"Lampe UV de désinfection",
+                "payload":"LAMPEUV" as lampeuv
+              }              
+            ]      
+          },
+          {
+            "title":"L'alcool ou le chlore peuvent-ils tuer le nouveau coronavirus ?",
+            "subtitle":"La pulvérisation d’alcool ou de chlore sur tout le corps peut-elle tuer le nouveau coronavirus ?",
+            "image_url":"https://www.jpg.fr/content/images/product/B443440_1_xnl.jpg",
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"Alcool et chlore",
+                "payload":"ALCOOLCHLORE" as alcool
+              }              
+            ]      
+          },
+          {
+            "title":"Est-il sans danger de recevoir du courrier de Chine ?",
+            "subtitle":"J'ai reçu un colis en provenance de Chine. Est-ce que je cours un risque d'infection par le coronavirus ?",
+            "image_url":"https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/b007cda4-0280-40ff-862a-567718d6703b/colis.jpg",
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"Courrier de Chine",
+                "payload":"COLISCHINE" as colischine
+              }              
+            ]      
+          },
+          {
+            "title":"Les animaux domestiques peuvent-ils propager le coronavirus",
+            "subtitle":"Est-ce que je cours un risque d'être infecté par le coronavirus en jouant avec mon chien, mon chat ou mon animal domestique ?",
+            "image_url":"https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/f1356f25-9915-4582-974c-4972992476ee/animaux.png",
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"Animaux domestiques",
+                "payload":"ANIMAUXDOMESTIQUES" as animaux
+              }              
+            ]      
+          },
+          {
+            "title":"Les vaccins contre la pneumonie protègent-ils contre le nouveau coronavirus ?",
+            "subtitle":"Je suis déjà vacciné contre la pneumonie. Est-ce que je cours un risque de contracter une infection au coronavirus ?",
+            "image_url":"https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/01b9b883-832e-41d6-b63b-c4ab5a311bd8/vaccin.png",
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"Vaccin contre la pneumonie",
+                "payload":"VACCINPNEUMONIE" as vaccinpneumonie
+              }              
+            ]      
+          },
+          {
+            "title":"Autre question",
+            "subtitle":"Ma question n'est pas dans cette liste",
+            "image_url":"https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/e9948dde-fcfd-4c18-9bb0-f97028270d70/question.png",
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"Plus de questions",
+                "payload":"MOREFAQ" as morefaq
+              }              
+            ]      
+          },
+        ]
+      }
+    }
+  }
+  hold
+
+  if (event match morefaq) goto morefaq
+
+  if (event match sechemain) {
+		say Typing(2000)
+		say "❌ Non. Les sèche-mains ne sont pas efficaces pour tuer le 2019-nCoV."
+		say Typing(2000)
+		say "Pour vous protéger contre le nouveau coronavirus, vous devez vous nettoyer fréquemment les mains avec un produit hydroalcoolique ou à l’eau et au savon."
+		say Typing(2000)
+		say "Une fois que vos mains sont propres, vous devez les sécher soigneusement à l’aide de *serviettes en papier* ou d’un *séchoir à air chaud*."
+	} 
+  else if (event match reusemask) {
+		say Typing(2000)
+		say "❌ Non. Les masques faciaux, y compris les masques médicaux plats ou les masques N95, ne doivent pas être réutilisés."
+		say Typing(2000)
+		say "Si vous avez été en contact étroit avec une personne infectée par le nouveau coronavirus ou qui présente une autre infection respiratoire, le devant de votre masque doit être considéré comme contaminé. Vous devez enlever le masque sans toucher sa partie avant et le jeter de manière appropriée."
+		say Typing(2000)
+		say "Après avoir enlevé votre masque, vous devez vous nettoyer les mains avec un produit hydroalcoolique ou à l’eau et au savon."
+		say Typing(2000)
+		say "Si vous souhaitez obtenir plus d'informations sur l'utilisation des masques, cliquez ici :"
+		say Button("Utiliser un masque")
+	} 
+  else if (event match lampeuv) {
+		say Typing(2000)
+		say "❌ Les lampes à UV ne doivent pas être utilisées pour se stériliser les mains ou d’autres parties du corps, car les rayons UV peuvent provoquer des érythèmes (irritation de la peau)."		
+		say Typing(2000)
+    say "Pour vous protéger contre le nouveau coronavirus, tenez-vous au courant de toutes les mesures que vous pouvez adopter."
+		say Typing(2000)
+		say "Pour plus de détails, voir le site Web de l’OMS :"
+    say Url("https://www.who.int/fr/emergencies/diseases/novel-coronavirus-2019/advice-for-public", text="Organisation Mondiale de la Santé")
+	} 
+  else if (event match alcool) {
+		say Typing(2000)
+		say "❌ Non. Vaporiser de l’alcool ou du chlore sur tout le corps ne tuera pas les virus qui ont déjà pénétré dans votre corps. La pulvérisation de ces substances peut être nocive pour les vêtements ou les muqueuses (c’est-à-dire les yeux, la bouche). Sachez que l’alcool et le chlore peuvent tous deux être utiles pour désinfecter les surfaces, mais ils doivent être utilisés en suivant les recommandations appropriées."
+		say Typing(2000)
+		say "Il existe plusieurs mesures que vous pouvez adopter pour vous protéger contre le nouveau coronavirus. Commencez par vous nettoyer fréquemment les mains en utilisant un produit hydroalcoolique – comme un gel – ou à l’eau et au savon. Pour connaître les autres mesures de protection, consultez les conseils de l’OMS à l’adresse suivante :"
+		say Url("https://www.who.int/fr/emergencies/diseases/novel-coronavirus-2019/advice-for-public", text="Organisation Mondiale de la Santé")
+	} 
+  else if (event match colischine) {
+		say Typing(2000)
+		say "✅ Oui, c’est sans danger. Les personnes qui reçoivent des colis en provenance de Chine ne risquent pas de contracter le nouveau coronavirus."
+		say Typing(2000)
+		say "D’après des analyses antérieures, nous savons que les coronavirus ne survivent pas longtemps sur des objets, tels que des lettres ou des colis."
+	} 
+  else if (event match animaux) {
+		say Typing(2000)
+		say "❌ À l’heure actuelle, rien ne prouve que les animaux de compagnie/animaux domestiques tels que les chiens ou les chats peuvent être infectés par le nouveau coronavirus."
+		say Typing(2000)
+		say "Toutefois, il est toujours bon de se laver les mains à l’eau et au savon après un contact avec des animaux domestiques."
+		say Typing(2000)
+		say "Cela vous protège contre diverses bactéries courantes comme E.coli et Salmonella qui peuvent passer des animaux de compagnie à l’homme."
+	} 
+  else if (event match vaccinpneumonie) {
+		say Typing(2000)
+		say "❌ Non. Les vaccins contre la pneumonie, tels que le vaccin antipneumococcique et le vaccin contre Haemophilus influenza type B (Hib), n’offrent pas de protection contre le nouveau coronavirus."		
+		say Typing(2000)
+    say "Le virus est tellement nouveau et différent qu’il nécessite un vaccin qui lui est propre."
+		say Typing(2000)
+		say "Les chercheurs sont en train de travailler à la mise au point d’un vaccin contre le 2019-nCoV et l’OMS les soutient dans leurs travaux."
+		say Typing(2000)
+    say "Bien que ces vaccins ne soient pas efficaces contre le 2019-nCoV, la vaccination contre les maladies respiratoires est fortement recommandée pour protéger votre santé."
+	} 
+
+	else {
+		say Typing(2000)
+		say "Je suis désolé, je n'ai pas compris votre choix !"
+		goto faq
+	}
+
+	goto choices
+
+
+morefaq:
+	say Typing(2000)
+  say "Voici d'autres questions fréquentes :"
+	say Typing(2000)
+	say {
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"generic",
+        "image_aspect_ratio": "square",
+        "elements":[
+          {
+            "title":"Se rincer le nez protège-t-il du coronavirus ?",
+            "subtitle":"Se rincer régulièrement le nez avec une solution saline peut-il aider à prévenir l'infection par le nouveau coronavirus ?",
+            "image_url":"https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/4814303f-4d82-4511-9ab7-9c0f82159675/nez.png",
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"Lavage de nez",
+                "payload":"RINCAGEDENEZ" as nose
+              }              
+            ]      
+          },
+          {
+            "title":"Manger de l'ail protège-t-il du coronavirus ?",
+            "subtitle":"Est-ce que consommer de l'ail peut m'aider à lutter ou me protéger contre le nouveau coronavirus ?",
+            "image_url":"https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/a35b9ff9-f667-4d2c-9862-4635def275a6/ail.png",
+            "buttons":[
+              {
+                "type":"postback",
+                "title": "Ail",
+                "payload": "MANGERDELAIL" as ail
+              }              
+            ]      
+          },
+          {
+            "title":"L'huile de sésame protège-t-elle l'organisme du coronavirus ?",
+            "subtitle":"Le fait de mettre de l'huile de sésame empêche-t-il le nouveau coronavirus de pénétrer dans l'organisme ?",
+            "image_url":"https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/3a3b7a4d-e0a2-4248-909e-7d970ec79810/sesame.jpg",
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"Huile de sésame",
+                "payload":"HUILESESAME" as huilesesame
+              }              
+            ]      
+          },
+          {
+            "title":"Quelles sont les populations les plus affectées ?",
+            "subtitle":"Le nouveau coronavirus affecte-t-il les personnes âgées ou les jeunes y sont-ils également sensibles ?",
+            "image_url":"https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/46b7c2c9-b1bb-498c-a1bd-ef1d9b9872b1/population.png",
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"Populations affectées",
+                "payload":"PERSONNESAGEES" as personnesagees
+              }              
+            ]      
+          },
+          {
+            "title":"Les antibiotiques peuvent-ils soigner du coronavirus ?",
+            "subtitle":"Les antibiotiques sont-ils efficaces pour prévenir et traiter l'infection par le nouveau coronavirus ?",
+            "image_url":"https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/08428abb-2639-49ac-9f9e-960b5dd7e18e/medicament.png",
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"Antibiotiques",
+                "payload":"ANTIBIOS" as antibiotiques
+              }              
+            ]      
+          },
+          {
+            "title":"Quels médicaments peuvent soigner du coronavirus ?",
+            "subtitle":"Existe-t-il des médicaments spécifiques pour prévenir ou traiter l'infection par le nouveau coronavirus ?",
+            "image_url":"https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/08428abb-2639-49ac-9f9e-960b5dd7e18e/medicament.png",
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"Médicaments",
+                "payload":"MEDICAMENTS" as medicaments
+              }              
+            ]      
+          },
+          {
+            "title":"Autre question",
+            "subtitle":"Ma question n'est pas dans cette liste",
+            "image_url":"https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/e9948dde-fcfd-4c18-9bb0-f97028270d70/question.png",
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"Plus de questions",
+                "payload":"MOREFAQ" as morefaq
+              }              
+            ]      
+          },
+          {
+            "title":"Revenir au début",
+            "subtitle":"Je souhaite revenir au début de la conversation",
+            "image_url":"https://cdn.csml.dev/customers/4140eea8-4825-4df6-981d-c1ee239884bc/files/54f07941-d472-47d7-afd7-00dbfc6d637f/back.png",
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"Redémarrer",
+                "payload":"REBOOT" as reboot
+              }              
+            ]      
+          },
+        ]
+      }
+    }
+  }
+  hold 
+
+  if (event match morefaq) goto faq
+  if (event match reboot) goto welcome
+  
+  if (event match nose) {
+		say Typing(2000)
+		say "❌ Non. Rien ne prouve que le fait de se rincer régulièrement le nez avec une solution saline protège les gens contre l’infection par le nouveau coronavirus."
+		say Typing(2000)
+    say "Il existe quelques éléments probants indiquant que cette pratique peut aider les gens à se remettre plus rapidement d’un rhume ordinaire."
+		say Typing(2000)
+		say "Cependant, il n’a pas été démontré que le fait de se rincer régulièrement le nez permettait de prévenir les infections respiratoires."
+	}
+	else if (event match ail) {
+		say Typing(2000)
+		say "❌ L’ail est un aliment sain qui peut avoir certaines propriétés antimicrobiennes."
+		say Typing(2000)
+		say "Cependant, rien ne prouve, dans le cadre de l’épidémie actuelle, que la consommation d’ail protège les gens contre le nouveau coronavirus."
+	}
+	else if (event match sesame) {
+		say Typing(2000)
+		say "❌ Non. L’huile de sésame ne tue pas le nouveau coronavirus."
+		say Typing(2000)
+		say "Il existe des désinfectants chimiques qui peuvent tuer le 2019-nCoV sur les surfaces."
+		say Typing(2000)
+		say "Il s’agit notamment de désinfectants à base d’eau de Javel ou de chlore, de solvants, d’éthanol à 75%, d’acide peracétique et de chloroforme."
+		say Typing(2000)
+    say "Cependant, ils ont peu d’impact sinon aucun sur le virus si vous les mettez sur la peau ou sous votre nez."
+		say Typing(2000)
+		say "⚠️ Il peut même être dangereux de se mettre ces produits chimiques sur la peau."
+	}
+	else if (event match population) {
+		say Typing(2000)
+		say "Les personnes de tous âges peuvent être infectées par le nouveau coronavirus (2019-nCoV). Les personnes âgées et les personnes souffrant de maladies préexistantes (comme l’asthme, le diabète, les maladies cardiaques) semblent plus susceptibles de tomber gravement malades à cause de ce virus.  "
+		say Typing(2000)
+		say "L’OMS conseille aux personnes de tous âges de prendre des mesures pour se protéger du virus, par exemple en suivant une bonne hygiène des mains et une bonne hygiène respiratoire."
+		say Url("https://www.who.int/fr/emergencies/diseases/novel-coronavirus-2019/advice-for-public", text="plus d'infos: Organisation Mondiale de la Santé")
+	}
+	else if (event match antibiotiques) {
+		say Typing(2000)
+		say "❌ Non, les antibiotiques n’agissent pas contre les virus, mais seulement contre les bactéries. "		
+		say Typing(2000)
+    say "Le nouveau coronavirus (2019-nCoV) est un virus et, par conséquent, les antibiotiques ne doivent pas être utilisés comme moyen de prévention ou de traitement."
+		say Typing(2000)
+    say "Cependant, si vous êtes hospitalisé pour une infection par le 2019-nCoV, vous pouvez recevoir des antibiotiques car une co-infection bactérienne est possible."
+	}
+	else if (event match medicaments) {
+		say Typing(2000)
+		say "❌ À ce jour, aucun médicament spécifique n’est recommandé pour prévenir ou traiter l’infection par le nouveau coronavirus (2019-nCoV)."		
+		say Typing(2000)
+    say "Toutefois, les personnes infectées par le virus doivent recevoir des soins appropriés pour soulager et traiter les symptômes, et celles qui sont gravement malades doivent recevoir des soins de soutien optimisés."
+		say Typing(2000)
+		say "Certains traitements spécifiques sont à l’étude et seront testés dans le cadre d’essais cliniques."
+	}
+	else {
+		say Typing(2000)
+		say "Je suis désolé, je n'ai pas compris votre choix !"
+		goto morefaq
+	}
+
+  
+  goto end
+

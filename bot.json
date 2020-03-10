@@ -1,0 +1,91 @@
+{
+  "id": "380b1d98-a95d-4ec6-8bd5-c25cbc70d303",
+  "name": "CovidBotFB_pour_GITHUB",
+  "description": null,
+  "default_flow": "Default",
+  "tags": [],
+  "flows": [
+    {
+      "name": "bonnesPratiques",
+      "commands": [],
+      "tags": []
+    },
+    {
+      "name": "choices",
+      "commands": [],
+      "tags": []
+    },
+    {
+      "name": "Default",
+      "description": "Default custom flow",
+      "commands": [],
+      "tags": []
+    },
+    {
+      "name": "faq",
+      "commands": [],
+      "tags": []
+    },
+    {
+      "name": "ideesRecues",
+      "description": null,
+      "commands": [],
+      "tags": []
+    },
+    {
+      "name": "masque",
+      "commands": [],
+      "tags": []
+    },
+    {
+      "name": "symptomes",
+      "commands": [],
+      "tags": []
+    },
+    {
+      "name": "welcome",
+      "commands": [],
+      "tags": []
+    }
+  ],
+  "files": [
+    {
+      "name": "ail.png",
+      "description": null
+    },
+    {
+      "name": "animaux.png",
+      "description": null
+    },
+    {
+      "name": "back.png",
+      "description": null
+    },
+    {
+      "name": "medicament.png",
+      "description": null
+    },
+    {
+      "name": "nez.png",
+      "description": null
+    },
+    {
+      "name": "population.png",
+      "description": null
+    },
+    {
+      "name": "question.png",
+      "description": null
+    },
+    {
+      "name": "sesame.jpg",
+      "description": null
+    },
+    {
+      "name": "vaccin.png",
+      "description": null
+    }
+  ],
+  "functions": [],
+  "apps": []
+}
