@@ -11,6 +11,12 @@
       "tags": []
     },
     {
+      "name": "chiffres",
+      "description": "Donner des chiffres sur le Coronavirus",
+      "commands": [],
+      "tags": []
+    },
+    {
       "name": "choices",
       "commands": [],
       "tags": []
@@ -18,6 +24,12 @@
     {
       "name": "Default",
       "description": "Default custom flow",
+      "commands": [],
+      "tags": []
+    },
+    {
+      "name": "dernieres_infos",
+      "description": "Dernières informations du gouvernement",
       "commands": [],
       "tags": []
     },
@@ -44,7 +56,13 @@
     },
     {
       "name": "welcome",
-      "commands": [],
+      "description": null,
+      "commands": [
+        "hello",
+        "redémarrer",
+        "restart",
+        "welcome"
+      ],
       "tags": []
     }
   ],
